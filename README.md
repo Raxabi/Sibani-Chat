@@ -1,2 +1,2 @@
 # web
-Learning aobut code
+Learning about code :)
