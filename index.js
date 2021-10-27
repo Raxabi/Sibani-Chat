@@ -17,6 +17,8 @@ app.get ('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html')
 })
 
+// ES: Añadimos soporte para los nombres de usuario
+// EN: Add support for nicknames
 const name = null;
 let users = [];
 
