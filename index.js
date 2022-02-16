@@ -8,7 +8,7 @@ const { Server } = require('socket.io');
 const web = new Server(server);
 const path = require('path');
 const port = process.env.PORT || 7777;
-
+require("./mongodb")
 app.use(express.static('./public'));
 
 app.use(express.static('./'));

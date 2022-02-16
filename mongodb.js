@@ -1,6 +1,12 @@
-const { MongoClient } = require('mongodb');
-const address = "mongodb://localhost:27017/mydb"
+const mongoose = require("mongoose");
 
-MongoClient.connect(address, function(err, login) {
-    
-});
+const MONGODB_URI = ""
+
+/* mongoose.connect(MONGODB_URI, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+})
+
+    .then(db => console.log("Conectado"))
+    .catch(err => console.log(err))
+*/
