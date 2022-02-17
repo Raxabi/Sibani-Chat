@@ -1,5 +1,6 @@
 /* ES: Requerimos frameworks/librerias */
 /* EN: Require framwroks/libreries */
+require("dotenv").config();
 const express = require('express');
 const app = express();
 const http = require('http');
@@ -8,7 +9,7 @@ const { Server } = require('socket.io');
 const web = new Server(server);
 const path = require('path');
 const port = process.env.PORT || 7777;
-require("./mongodb")
+require("./mongodb");
 app.use(express.static('./public'));
 
 app.use(express.static('./'));
@@ -16,6 +17,8 @@ app.use(express.static('./'));
 app.get ('/', (req, res) => {
     res.sendFile('./public/index.html')
 })
+
+console.log(process.env.TEST);
 
 // ES: Añadimos soporte para los nombres de usuario
 // EN: Add support for nicknames
