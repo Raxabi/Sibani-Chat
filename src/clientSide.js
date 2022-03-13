@@ -5,15 +5,14 @@ const form = document.getElementById('form');
 const input = document.getElementById('input');
 const message = document.getElementById('message');
 
-/* Escuchamos los 'eventos' de la constante form, y eliminamos el comportamiento
-por defecto de recarga de la web. Luego el mensaje que sera capturado sera escrito como valor en la
-constante input */
+/* Escuchamos eventos del formulario y lo emitimos */
 
 form.addEventListener('submit', function(e) {
     e.preventDefault();
     if(input.value) {
         socket.emit('chat message', input.value);
         input.value = '';
+        console.log("Estoy fucionando!");
     }
 });
 

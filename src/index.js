@@ -1,3 +1,4 @@
+// Importamos todo el codgio de la app para arrancarlo
 import app from "./app.js";
 
 // Listen requests on const port

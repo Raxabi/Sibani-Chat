@@ -2,16 +2,28 @@ import { Router } from "express";
 const router = Router();
 
 router.get("/", (req, res) => {
-    res.send("Hello World");
+    res.render("main.hbs");
 });
+
+router.get("/register", (req, res) => {
+    res.render("register.hbs");
+});
+
+router.post("/register/newUser", (req, res) => {
+    res.render("register.hbs");
+});
+
 
 router.get("/login", (req,res) => {
     res.render("login.hbs");
 });
 
-// ES: Añadimos soporte para los nombres de usuario
-// EN: Add support for nicknames
-let name = null;
-let users = [];
+router.post("/login/loggedUser", (req,res) => {
+    null;
+});
+
+router.get("/chat", (req, res) => {
+    res.render("chat.hbs");
+});
 
 export default router;

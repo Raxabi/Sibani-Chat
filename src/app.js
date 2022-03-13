@@ -8,12 +8,15 @@ import { Server } from "socket.io";
 import { create } from "express-handlebars";
 import "dotenv/config";
 import path from "path";
-
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
 
 // Consts of nodejs modules
 const app = express();
 const server = http.createServer(app);
 const httpServer = new Server(server);
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // Import files
 import "./models/mongodb.js"
@@ -22,19 +25,25 @@ import routes from "./routes/index.routes.js";
 // Routes
 app.use(routes)
 
+// Loading static files
+app.use(express.static(path.join(__dirname, "../public")));
+
+app.use(express.static(path.join(__dirname)))
+
 // Template engine handlebars config
-app.set("views", path.join(__dirname, "views/"));
-console.log(__dirname)
+app.set("views", path.join(__dirname, "views"));
 app.engine(
   ".hbs",
   create({
     layoutsDir: path.join(app.get("views"), "layouts"),
-    //partialsDir: path.join(app.get("view"), "partials"),
-    defaulLayout: "index",
+    partialsDir: path.join(app.get("views"), "partials"),
+    defaulLayout: "main",
     extname: ".hbs",
   }).engine
 );
 app.set("view engine", ".hbs");
+
+console.log(__dirname);
 
 httpServer.on("connection", (socket) => {
     console.log("Nuevo usuario conectado")
