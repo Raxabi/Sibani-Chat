@@ -10,6 +10,7 @@ import "dotenv/config";
 import path from "path";
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
+import morgan from "morgan";
 
 // Consts of nodejs modules
 const app = express();
@@ -22,13 +23,14 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 import "./models/mongodb.js"
 import routes from "./routes/index.routes.js";
 
+// morgan http methods
+app.use(morgan("dev"));
+
 // Routes
 app.use(routes)
 
 // Loading static files
 app.use(express.static(path.join(__dirname, "../public")));
-
-app.use(express.static(path.join(__dirname)))
 
 // Template engine handlebars config
 app.set("views", path.join(__dirname, "views"));
@@ -43,7 +45,8 @@ app.engine(
 );
 app.set("view engine", ".hbs");
 
-console.log(__dirname);
+// Convert data to json
+app.use(express.urlencoded( {extended: false} ));
 
 httpServer.on("connection", (socket) => {
     console.log("Nuevo usuario conectado")
