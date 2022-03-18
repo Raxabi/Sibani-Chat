@@ -1,0 +1,27 @@
+<title>Sibani Chat | Register</title>
+<div class="card bg-dark text-white m-auto mt-1" style="width: 20rem;">
+  <img src="images/usuario.jpg" class="card-img-top" alt="usuario, register, user, login"/>
+  <div class="card-body">
+    <h5 class="card-title">Registrate</h5>
+    <form class="mt-2" action="/register/useradd" method="post">
+      <div>
+        <label for="name" class="form-label">Usuario / Nickname</label>
+        <input name="name" class="form-control" type="text" autofocus />
+      </div>
+      <div>
+        <label for="mail" class="form-label mt-2">Correo eletrónico / Email</label>
+        <input name="email" class="form-control" type="email" placeholder="Something like name@domain" />
+        <p class="card-text fa-5 mt-2">Nos compremetos a no compartir esta informacion con nadie</p>
+      </div>
+      <div>
+        <label for="password" class="form-label mt-2">Contraseña / Password</label>
+        <input name="password" class="form-control" type="password" />
+      </div>
+      <button class="btn btn-primary mt-3">Crear cuenta / Create accout</button>
+      <div>
+        <p class="card-text mt-2">¿Ya tienes una cuenta?</p>
+        <a class="link-success mt-0" href="/login">Inicia sesión aquí</a>
+      </div>
+    </form>
+  </div>
+</div>
